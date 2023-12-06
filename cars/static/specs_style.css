@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    background: #fff;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10;
+}
+
+p {
+    font-size: 0.9em;
+    max-width: 35em;
+    line-height: 27px;
+}
+
+h1, h2{
+    font-weight: 300;
+}
+
+h1{
+   
+    margin: 0.5em 0;
+    font-size: 3rem;
+}
+
+
+.specs h2, .about h2{
+    font-size: 2em;
+    padding-left: 1.2em;
+    border-left: 0.1em #5bc7ca solid;
+}
+
+ul {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+section{
+    padding: 2.5em;
+}
+
+nav .specs-header, .specs li, .stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.specs, .panel:first-child .panel:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+nav li{
+    display: inline-block;
+    margin: 0 0.8em;
+    text-align: center;
+    
+}
+
+
+.specs{
+    background-size: cover;
+    min-height: 40em;
+    position: relative;
+    padding-top: 8em;
+    padding-bottom: 8em;
+}
+
+.specs-header.specs ul {
+    position: relative;
+    z-index: 1;
+}
+
+.specs ul{
+    width: 40em;
+    margin-top: 3em;
+}
+
+
+.specs li{
+    padding: 0.6em 0;
+    border-bottom: #555 1px solid;
+}
+
+.specs li span:first-child{
+    color: #888;
+}
+
+.specs li span:last-child{
+    float: right;
+    color: #555;
+}
+
+

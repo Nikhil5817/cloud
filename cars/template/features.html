@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>AUTOMOBILE INFORMATION</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'specs_style.css' %}">
+    </head>
+
+
+
+
+<section class="specs">
+    <div>
+        <div class="specs-header">
+            <h2> FEATURES</h2>
+           
+            
+        </div>
+        <ul>
+            <li> 
+                <span>VARIENT NAME</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.0 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %} 
+                </span>
+            </li>
+            <li> 
+                <span>MODEL NAME</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.1 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>Body Type</span>
+                <span>
+                    {% for v in model3 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.0 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>Price (In Lacs)</span>
+                <span>
+                    {% for v in model3 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.1 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>Wating_period (In Weeks)</span>
+                <span>
+                    {% for v in model3 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.2 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>Transmission</span>
+                <span>
+                    {% for v in model2 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.2 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>FuelType</span>
+                <span>
+                    {% for v in model2 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.3 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>LENGTH  (in cm)</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.2 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>WIDTH  (in cm)</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.3 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>HEIGHT  (in cm)</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.4 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>ENGINE CC </span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.5 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>MILEAGE (in Kmpl)</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.6 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>BOOTSPACE  (in Litres)</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.7 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>SEATS</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.8 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>AIR BAGS</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.9 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>CAMERA</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.10 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>HEAD LIGHT</span>
+                <span>
+                    {% for v in model1 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.11 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+            <li> 
+                <span>Rating (Out of 5)</span>
+                <span>
+                    {% for v in model3 %}
+                    <a href="#">
+                        <div class="model-name">
+                            <p>{{ v.3 }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+

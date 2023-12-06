@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name = "Description" content = "This is a website for automobile information."/>
+
+
+        <title>AUTOMOBILE INFORMATION</title>
+        <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+
+        <style>
+            td>img {
+                width: 100%;
+                height: 250px;
+                object-fit: contain;
+            }
+        </style>
+    </head>
+
+
+<body>
+    <h1 class="display-5 my-5 text-center">Car Comparision</h1>
+    <div class="container">
+        <div class="col-md-9 mx-auto">
+            <table class="table">
+                <tr class="bg-light">
+                    <th>Select Car</th>
+                    <th>
+                        <select class="form-control" id="select1" onchange="item1(this.value)">
+                            <option value="0">-- Select Anyone --</option>
+                        </select>
+                    </th>
+                    <th>
+                        <select class="form-control" id="select2" onchange="item2(this.value)">
+                            <option value="0">-- Select Anyone --</option>
+                        </select>
+                    </th>
+                </tr>
+                <!-- <tr>
+                    <th>Car Image</th>
+                    <td>
+                        {% load static %}
+                        <img src="{% static 'images/image_placeholder.png' %}" id="{% static img1 %}" alt="">
+                    </td>
+                    <td>
+                        {% load static %}
+                        <img src = "{% static 'images/image_placeholder.png' %}" id = "{% static img1 %}" alt = "">
+                    </td>
+                </tr> -->
+                <tr> 
+                    <th>Varient Name</th>
+                    <td id="Varient_Name1"></td>
+                    <td id="Varient_Name2"></td>
+                </tr>
+                <tr>
+                    <th>Model Name</th>
+                    <td id="Model_Name1"></td>
+                    <td id="Model_Name2"></td>
+                </tr>
+                <tr>
+                    <th>Body Type</th>
+                    <td id="Body_Type1"></td>
+                    <td id="Body_Type2"></td>
+                </tr>
+                <tr>
+                    <th>price</th>
+                    <td id="Price1"></td>
+                    <td id="Price2"></td>
+                </tr>
+                <tr>
+                    <th>Waiting Period</th>
+                    <td id="Waiting_Period1"></td>
+                    <td id="Waiting_Period2"></td>
+                </tr>
+                <tr>
+                    <th>Transmission</th>
+                    <td id="Transmission1"></td>
+                    <td id="Transmission2"></td>
+                </tr>
+                <tr>
+                    <th>Fuel Type</th>
+                    <td id="Fuel_Type1"></td>
+                    <td id="Fuel_Type2"></td>
+                </tr>
+                <tr>
+                    <th>Length1</th>
+                    <td id="Length1"></td>
+                    <td id="Length2"></td>
+                </tr>
+                <tr>
+                    <th>width</th>
+                    <td id="Width1"></td>
+                    <td id="Width2"></td>
+                </tr>
+                <tr>
+                    <th>Height</th>
+                    <td id="Height1"></td>
+                    <td id="Height2"></td>
+                </tr>
+                <tr>
+                    <th>Engine_CC</th>
+                    <td id="Engine_CC1"></td>
+                    <td id="Engine_CC2"></td>
+                </tr>
+                <tr>
+                    <th>Mileage</th>
+                    <td id="Mileage1"></td>
+                    <td id="Mileage2"></td>
+                </tr>
+                <tr>
+                    <th>Boot_Space</th>
+                    <td id="Boot_Space1"></td>
+                    <td id="Boot_Space2"></td>
+                </tr>
+                <tr>
+                    <th>Seats</th>
+                    <td id="Seats1"></td>
+                    <td id="Seats2"></td>
+                </tr>
+                <tr>
+                    <th>Airbags</th>
+                    <td id="Airbags1"></td>
+                    <td id="Airbags2"></td>
+                </tr>
+                <tr>
+                    <th>Camera</th>
+                    <td id="Camera1"></td>
+                    <td id="Camera2"></td>
+                </tr>
+                <tr>
+                    <th>HeadLight</th>
+                    <td id="HeadLight1"></td>
+                    <td id="HeadLight2"></td>
+                </tr>
+                <tr>
+                    <th>Rating</th>
+                    <td id="Rating1"></td>
+                    <td id="Rating2"></td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+
+
+
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+{% load static %}
+<script src="{% static 'comparisions_script.js' %}"></script>
+
+<script>
+    
+    for(var i = 1; i < car.length; i++){
+        document.getElementById("select1").innerHTML += `<option value="${i}">${car[i].Varient_Name}</option>`;
+        document.getElementById("select2").innerHTML += `<option value="${i}">${car[i].Varient_Name}</option>`;
+    }
+
+    function item1(a){
+        var select2 = document.getElementById("select2").value;
+        if (a != select2) {
+            document.getElementById("Varient_Name1").innerHTML = car[a].Varient_Name;
+            document.getElementById("Model_Name1").innerHTML = car[a].Model_Name;
+            document.getElementById("Body_Type1").innerHTML = car[a].Body_Type;
+            document.getElementById("Price1").innerHTML = car[a].Price;
+            document.getElementById("Waiting_Period1").innerHTML = car[a].Waiting_Period;
+            document.getElementById("Transmission1").innerHTML = car[a].Transmission;
+            document.getElementById("Fuel_Type1").innerHTML = car[a].Fuel_Type;
+            document.getElementById("Length1").innerHTML = car[a].Length;
+            document.getElementById("Width1").innerHTML = car[a].Width;
+            document.getElementById("Height1").innerHTML = car[a].Height;
+            document.getElementById("Engine_CC1").innerHTML = car[a].Engine_CC;
+            document.getElementById("Mileage1").innerHTML = car[a].Mileage;
+            document.getElementById("Boot_Space1").innerHTML = car[a].Boot_Space;
+            document.getElementById("Seats1").innerHTML = car[a].Seats;
+            document.getElementById("Airbags1").innerHTML = car[a].Airbags;
+            document.getElementById("Camera1").innerHTML = car[a].Camera;
+            document.getElementById("HeadLight1").innerHTML = car[a].HeadLight;
+            document.getElementById("Rating1").innerHTML = car[a].Rating;
+
+
+            
+        }
+        
+         else {
+            
+            document.getElementById("{% static img1 %}").src = car[0].image
+        }
+        
+    }
+    function item2(a){
+        var select1 = document.getElementById("select1").value;
+        if (a != select1) {
+            document.getElementById("Varient_Name2").innerHTML = car[a].Varient_Name;
+            document.getElementById("Model_Name2").innerHTML = car[a].Model_Name;
+            document.getElementById("Body_Type2").innerHTML = car[a].Body_Type;
+            document.getElementById("Price2").innerHTML = car[a].Price;
+            document.getElementById("Waiting_Period2").innerHTML = car[a].Waiting_Period;
+            document.getElementById("Transmission2").innerHTML = car[a].Transmission;
+            document.getElementById("Fuel_Type2").innerHTML = car[a].Fuel_Type;
+            document.getElementById("Length2").innerHTML = car[a].Length;
+            document.getElementById("Width2").innerHTML = car[a].Width;
+            document.getElementById("Height2").innerHTML = car[a].Height;
+            document.getElementById("Engine_CC2").innerHTML = car[a].Engine_CC;
+            document.getElementById("Mileage2").innerHTML = car[a].Mileage;
+            document.getElementById("Boot_Space2").innerHTML = car[a].Boot_Space;
+            document.getElementById("Seats2").innerHTML = car[a].Seats;
+            document.getElementById("Airbags2").innerHTML = car[a].Airbags;
+            document.getElementById("Camera2").innerHTML = car[a].Camera;
+            document.getElementById("HeadLight2").innerHTML = car[a].HeadLight;
+            document.getElementById("Rating2").innerHTML = car[a].Rating;
+
+            } 
+            else{
+
+                document.getElementById("{% static img2 %}").src = car[0].image
+        }
+    }
+</script>
+
