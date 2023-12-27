@@ -1,34 +1,36 @@
 from django.shortcuts import render
+import mysql.connector
 
-import cx_Oracle
+username = ''
+passwordd = ''
 
-username=''
-passwordd=''
-# Create your views here.
 def logincars(request):
-    global email,passwordd
-    if request.method=="POST":
-        connStr = 'project/project@localhost:1521/xe'
+    global username, passwordd
+    if request.method == "POST":
+        conn = mysql.connector.connect(
+            host='carsdata.cufmhgrmxcfa.ap-south-1.rds.amazonaws.com',
+            user='admin',
+            password='admin5817',
+            database='CARS'
+        )
+        cur = conn.cursor(dictionary=True)
 
-        #connStr = cx_Oracle.connect(user='project', passw  ord='project', dsn='localhost:1521/xe')
-        conn = cx_Oracle.connect(connStr)
-        cur = conn.cursor()
-        d=request.POST
-        for key,value in d.items():
-            if key=="email":
-                username=value
-            if key=="pass":
-                passwordd=value
+        d = request.POST
+        for key, value in d.items():
+            if key == "email":
+                username = value
+            if key == "pass":
+                passwordd = value
 
-        sq1 = "SELECT * FROM CUSTOMER WHERE Customer_Email='{}'AND password='{}'".format(username,passwordd)
+        sq1 = "SELECT * FROM CUSTOMER WHERE Customer_Email = %s AND password = %s"
         print(sq1)
-        cur.execute(sq1)
-        a=tuple(cur.fetchall())
-       
-        if a==():
+        cur.execute(sq1, (username, passwordd))
+        result = cur.fetchall()
+
+        if not result:
             print('fail')
-            return render(request,'fail.html')
-           
+            return render(request, 'fail.html')
         else:
-            return render(request,"indexlogout.html")
-    return render(request,'index.html')
+            return render(request, "indexlogout.html")
+
+    return render(request, 'index.html')

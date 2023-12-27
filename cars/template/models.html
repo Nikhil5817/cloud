@@ -17,22 +17,23 @@
     </head>
 
 
-  
-
-
-
     
-<h1 class="heading"> <span>{{ model.0.1 }}</span></h1>
-<div class="model-container" id="brands" style="background-color:white;" >
 
-    {% for v in model %}
-    <a href="{% url 'grandvitara' %}?variant={{ v.0 }}">
-    <div class="model-name"> 
-        <p>{{  v.0 }} </p>
+
+
+
+    <h1 class="heading"> <span>{{ model.0.brandname }}</span></h1>
+    <div class="model-container" id="brands" style="background-color:white;">
+
+        {% for v in model %}
+                <a href="{% url 'grandvitara' %}?variant={{ v.ModelName }}">
+                <div class="model-name">
+                    <p>{{ v.ModelName }}</p>
+                </div>
+            </a>
+        {% endfor %}
     </div>
-    </a>
-    {% endfor %}
 
 
 
-</div>
+

@@ -6,12 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>AUTOMOBILE INFORMATION</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-
-
-         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-        <!-- custom css file link  -->
         {% load static %}
         <link rel="stylesheet" href="{% static 'suzuki_models.css' %}">
     </head>
@@ -22,20 +17,14 @@
 
 
     
-<h1 class="heading"> <span>{{ variant }}</span></h1>
+    <h1 class="heading"> <span>{{ variant }}</span></h1>
 
 <div class="model-container" id="brands" style="background-color:white;" >
     {% for v in model %}
-    <a href="{% url 'features' %}?features={{ v.0 }}">
+    <a href="{% url 'features' %}?features={{ v.VARIANTNAME }}">
     <div class="model-name">
-        <p>{{  v.0 }}</p>
-    </div>
+        <p>{{  v.VARIANTNAME }}</p>
+    </div>`
     </a>
     {% endfor %}
-
- 
-    
-
-
 </div>
-

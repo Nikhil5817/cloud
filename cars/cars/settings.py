@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'varients',
     'features',
     'comparisions',
-
+    'storages',
+    'carsorting',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'cars.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'carsdata',
+        'NAME': 'CARS',
         'USER': 'admin',
         'PASSWORD': 'admin5817',
         'HOST': 'carsdata.cufmhgrmxcfa.ap-south-1.rds.amazonaws.com',
@@ -141,3 +142,19 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+AWS_ACCESS_KEY_ID = 'AKIAR2KDJSFK4HLMFUPA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'demo5817'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'ap-south-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

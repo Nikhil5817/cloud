@@ -21,6 +21,9 @@ from suzuki.views import *
 from varients.views import *
 from features.views import *
 from comparisions.views import *
+from carsorting.views import *
+
+
 
 
 urlpatterns = [
@@ -44,7 +47,12 @@ urlpatterns = [
     path('landrover/',landrover),
     path('grandvitara/',grandvitara, name='grandvitara'),
     path('features/',features, name='features'),
-    path('my_view/',my_view)
+    path('my_view/',my_view),
+    path('cars/filter_and_sort/', cars_filter_and_sort, name='cars_filter_and_sort'),
+
+
+    
+
 
     
 ]

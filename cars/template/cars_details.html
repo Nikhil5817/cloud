@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            flex: 1;
+            padding-right: 10px;
+        }
+
+        select, input {
+            flex: 1;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 16px;
+            flex: 1;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="{% url 'cars_filter_and_sort' %}">
+        {% csrf_token %}
+        <label for="bodyType">Select Body Type:</label>
+        <select name="bodyType" id="bodyType">
+            <option value="">Any</option>
+            <option value="sedan">Sedan</option>
+            <option value="hatchback">Hatchback</option>
+            <!-- Add more options as needed -->
+        </select>
+        
+        <label for="minPrice">Enter Minimum Price:</label>
+        <input type="text" name="minPrice" id="minPrice">
+        
+        <label for="maxPrice">Enter Maximum Price:</label>
+        <input type="text" name="maxPrice" id="maxPrice">
+        
+        <label for="mileage">Enter Minimum Mileage:</label>
+        <input type="text" name="mileage" id="mileage">
+        
+        <button type="submit">Filter and Sort</button>
+    </form>
+
+    <h2>Cars Details for Body Type: {{ body_type }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Brand</th>
+                <th>Body Type</th>
+                <th>Rating</th>
+                <th>Price (lacs)</th>
+                <th>Transmission</th>
+                <th>Fuel Type</th>
+                <th>Color</th>
+                <th>Length</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Engine cc</th>
+                <th>Mileage</th>
+                <th>Bootspace</th>
+                <th>Seats</th>
+                <th>Airbags</th>
+                <th>Camera</th>
+                <th>HeadLight</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+                <tr>
+                    <td>{{ car.ModelName }}</td>
+                    <td>{{ car.BrandName }}</td>
+                    <td>{{ car.BodyType }}</td>
+                    <td>{{ car.Rating }}</td>
+                    <td>{{ car.Price }}</td>
+                    <td>{{ car.Transmission }}</td>
+                    <td>{{ car.FuelType }}</td>
+                    <td>{{ car.Color }}</td>
+                    <td>{{ car.Length }}</td>
+                    <td>{{ car.Width }}</td>
+                    <td>{{ car.Height }}</td>
+                    <td>{{ car.Engine_cc }}</td>
+                    <td>{{ car.Mileage }}</td>
+                    <td>{{ car.Bootspace }}</td>
+                    <td>{{ car.Seats }}</td>
+                    <td>{{ car.Airbags }}</td>
+                    <td>{{ car.Camera }}</td>
+                    <td>{{ car.HeadLight }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
